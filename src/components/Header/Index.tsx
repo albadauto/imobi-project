@@ -11,26 +11,19 @@ export default function Header() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="mx-auto"
+            className="ms-auto"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1"><LabelLink>Home</LabelLink></Nav.Link>
-            <Nav.Link href="#action2"><LabelLink>Link</LabelLink></Nav.Link>
+            <Nav.Link href="/"><LabelLink>Home</LabelLink></Nav.Link>
+            <Nav.Link href="#action2"><LabelLink>Imóveis</LabelLink></Nav.Link>
             <Nav.Link href="#" >
             <LabelLink>Sobre</LabelLink>
             <LabelLink>Login</LabelLink>
 
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
-        <FormControl
-          type="search"
-          placeholder="Procurar Imovel"
-          className="me-2"
-          aria-label="Search"
-        />
-        </Form>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
