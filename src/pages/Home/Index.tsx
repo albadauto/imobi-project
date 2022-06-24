@@ -62,6 +62,35 @@ export default function Home() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <br /><br /><br />
+      <Container>
+        <Row>
+          <Col className="text-center">
+            <h1>O que é a Imobi Project?</h1>
+          </Col>
+
+          <Col className="border border-black">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h3>
+          </Col>
+
+        </Row>
+        <br /><br />
+        <Row>
+
+          <Col className="border border-black">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h3>
+          </Col>
+
+          <Col className="text-center">
+            <h1>Qual é o nosso objetivo?</h1>
+          </Col>
+
+        </Row>
+
+        
+
+
+      </Container>
 
       <br /><br /><br />
     </>
