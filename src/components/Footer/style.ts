@@ -6,3 +6,7 @@ export const FooterMain = styled.footer`
     color: white;
     padding:30px;
 `
+
+export const NameOfSite = styled.h2`
+    font-weight: bold;
+`

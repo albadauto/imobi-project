@@ -1,14 +1,19 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
-import { FooterMain } from './style'
+import { Col, Container, Row } from 'react-bootstrap'
+import { FooterMain, NameOfSite } from './style'
 
 export default function Footer() {
     return (
         <FooterMain>
             <Container>
-                Footer
-
-
+                <NameOfSite>
+                    Imobi Project
+                </NameOfSite>
+                <Row>
+                    <Col>
+                        Copyright {new Date().getFullYear()} Todos os Direitos Reservados - Johh
+                    </Col>
+                </Row>
             </Container>
         </FooterMain>
     )
