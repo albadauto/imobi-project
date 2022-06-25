@@ -19,6 +19,9 @@ export default function Header() {
             <Nav.Link href="#action2"><LabelLink>Imóveis</LabelLink></Nav.Link>
             <Nav.Link href="#" >
             <LabelLink>Sobre</LabelLink>
+
+            </Nav.Link>
+            <Nav.Link href="/Login" >
             <LabelLink>Login</LabelLink>
 
             </Nav.Link>

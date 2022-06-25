@@ -6,6 +6,7 @@ export default function Home() {
     <>
       <div className="container-main">
         <Container>
+          
           <Row>
             <Col className="text-center welcome">
               <h1>Bem vindo(a) à sua nova Casa!</h1>
@@ -70,7 +71,7 @@ export default function Home() {
           </Col>
 
           <Col className="border border-black">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h3>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h4>
           </Col>
 
         </Row>
@@ -78,7 +79,7 @@ export default function Home() {
         <Row>
 
           <Col className="border border-black">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h3>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h4>
           </Col>
 
           <Col className="text-center">
