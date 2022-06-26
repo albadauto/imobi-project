@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useHeader } from '../../providers/HeaderProvider';
 import { LabelLink, Logo } from './style';
 export default function Header() {
+  const { bar, setBar }: any = useHeader();
+    if (sessionStorage.getItem("token")){
+      setBar({...bar, title: "Minha conta"})
+    }else{
+      setBar({...bar, title: "Login"})
+    }
   return (
     <Navbar bg="light" expand="lg">
       <Container >
@@ -22,7 +29,8 @@ export default function Header() {
 
             </Nav.Link>
             <Nav.Link href="/Login" >
-            <LabelLink>Login</LabelLink>
+            <LabelLink>{bar.title}</LabelLink>
+
 
             </Nav.Link>
           </Nav>

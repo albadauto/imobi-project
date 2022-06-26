@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Col, Container, Row, Form, FloatingLabel, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../../api';
 import { toast } from "react-toastify";
 import "./style.css";
@@ -9,6 +9,7 @@ interface userModel{
   password: string
 }
 export default function Login() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState<userModel>({
     email:"",
     password:"",
@@ -18,14 +19,14 @@ export default function Login() {
     e.preventDefault();
     try{
       const result = await api.post("/authenticate", userData);
-      toast.success(result.data.token.token)
-    }catch(err){
-      console.log(err);
-      console.log(userData);
+      sessionStorage.setItem("token", result.data.token.token)
+      navigate("/");
+    }catch(err: any){
+      toast.error(err.response.data.message);
     }
   }
 
-  console.log("email" in userData)
+  //console.log("email" in userData)
   return (
     <div className="login-container border border-dark">
       <Container >
@@ -65,7 +66,7 @@ export default function Login() {
 
         <Row>
           <Col className="text-center m">
-           <Link to="/">Não tem conta? Registre-se Já!</Link>
+           <Link to="/Register">Não tem conta? Registre-se Já!</Link>
           </Col>
         </Row>
         </Form>
