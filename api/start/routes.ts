@@ -27,6 +27,8 @@ Route.group(() => {
 
   Route.group(() => {
     Route.post("/registerUser", "UsersController.createNewUser");
+    Route.post("/authenticate", "AuthController.verifyLogin");
+
   })
 }).prefix("api");
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Col, Container, Row, Form, FloatingLabel, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import { api } from '../../api';
+import { toast } from "react-toastify";
 import "./style.css";
 interface userModel{
   email:string,
@@ -12,15 +14,22 @@ export default function Login() {
     password:"",
   });
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>){
+  async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault();
+    try{
+      const result = await api.post("/authenticate", userData);
+      toast.success(result.data.token.token)
+    }catch(err){
+      console.log(err);
+      console.log(userData);
+    }
   }
 
   console.log("email" in userData)
   return (
     <div className="login-container border border-dark">
       <Container >
-        <Form>
+        <Form onSubmit={handleOnSubmit}>
         <Row >
           <Col className="text-center">
             <h1>Login na Imobi Project</h1>

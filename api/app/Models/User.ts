@@ -13,6 +13,21 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
+  public name: string
+
+  @column()
+  public city: string
+
+  @column()
+  public district: string
+
+  @column()
+  public number: string
+
+  @column()
+  public phone: string
+
+  @column()
   public rememberMeToken?: string
 
   @column.dateTime({ autoCreate: true })

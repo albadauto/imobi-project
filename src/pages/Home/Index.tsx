@@ -21,7 +21,6 @@ export default function Home() {
       <br /><br />
 
       <Container>
-
         <Row>
           <Col className="text-center">
             <h1>Nossos ultimos anúncios</h1>
@@ -87,9 +86,6 @@ export default function Home() {
           </Col>
 
         </Row>
-
-        
-
 
       </Container>
 

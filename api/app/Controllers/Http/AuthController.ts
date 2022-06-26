@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class AuthController {
-    public async verifyPassword({request,response,auth}: HttpContextContract){
+    public async verifyLogin({request,response,auth}: HttpContextContract){
         try{
             const { email, password } = request.body();
             const token = await auth.attempt(email, password);
@@ -12,7 +12,10 @@ export default class AuthController {
                 })
             }
         }catch(err){
-            console.log(err);
+            return response.status(400).json({
+                auth: false,
+                message: "Usuário não encontrado"
+            })
         }
     }
 }
