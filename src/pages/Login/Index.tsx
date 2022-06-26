@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Col, Container, Row, Form, FloatingLabel, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import "./style.css";
 interface userModel{
   email:string,
@@ -14,6 +15,8 @@ export default function Login() {
   function onSubmit(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault();
   }
+
+  console.log("email" in userData)
   return (
     <div className="login-container border border-dark">
       <Container >
@@ -34,14 +37,26 @@ export default function Login() {
         <Row>
           <Col >
             <FloatingLabel label="Senha">
-              <Form.Control type="password" placeholder='Password' value={userData.password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData({...userData, password: e.target.value})} />
+              <Form.Control type="password" placeholder='Password' value={userData.password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData({...userData, password: e.target.value})}/>
             </FloatingLabel>
+          </Col>
+        </Row>
+        
+        <Row>
+          <Col className="text-center mt-5 ">
+           <Button className="button-login" variant="secondary" type="submit">Login</Button>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col className="text-center m">
+           <Link to="/">Esqueci a senha</Link>
           </Col>
         </Row>
 
         <Row>
-          <Col className="text-center mt-5 ">
-           <Button className="button-login" variant="secondary" type="submit">Login</Button>
+          <Col className="text-center m">
+           <Link to="/">Não tem conta? Registre-se Já!</Link>
           </Col>
         </Row>
         </Form>

@@ -2,13 +2,13 @@
     margin-left: 400px;
     margin-right: 400px;
     margin-bottom: 150px;
-    margin-top: 200px;
+    margin-top: 100px;
     padding: 100px;
 }
 
 .button-login{
     background-color: #ff5733 !important;
-    font-size: 20px;
+    font-size: 20px !important;
     padding-left: 20px;
     padding-right: 20px;
 
