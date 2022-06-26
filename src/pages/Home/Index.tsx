@@ -70,7 +70,7 @@ export default function Home() {
             <h1>O que é a Imobi Project?</h1>
           </Col>
 
-          <Col className="border border-black">
+          <Col className="border border-dark">
             <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h4>
           </Col>
 
@@ -78,7 +78,7 @@ export default function Home() {
         <br /><br />
         <Row>
 
-          <Col className="border border-black">
+          <Col className="border border-dark">
             <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h4>
           </Col>
 
