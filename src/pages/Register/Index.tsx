@@ -66,7 +66,7 @@ export default function Register() {
                 <Col xs={4}>
                     <FloatingLabel label="Numero">
 
-                        <Form.Control type="number" placeholder="Email" value={userData.number} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData({...userData, number: e.target.valueAsNumber })}/>
+                        <Form.Control type="number" placeholder="Email" value={userData.number} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData({...userData, number: e.target.valueAsNumber})}/>
 
                     </FloatingLabel>
                 </Col>
