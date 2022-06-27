@@ -12,4 +12,9 @@ export const GlobalStyle = createGlobalStyle`
     .button-start:hover{
         background-color: #ff5733;
     }
+    .button-geral{
+        background-color: #ff6400;
+        border-radius: 10px;
+        font-size: 20px;
+    }
 `
