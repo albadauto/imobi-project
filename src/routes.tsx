@@ -13,7 +13,6 @@ export default function Routes() {
           <Route path='/' element={<Home />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Register' element={<Register />} />
-
         </Rt>
       <Footer />
     </BrowserRouter>
