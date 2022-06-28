@@ -16,6 +16,9 @@ export default class Property extends BaseModel {
 
   @column()
   public user_id:number
+
+  @column()
+  public location: string
   
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

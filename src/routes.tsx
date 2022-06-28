@@ -5,6 +5,7 @@ import Header from './components/Header/Index';
 import Home from './pages/Home/Index';
 import Login from './pages/Login/Index';
 import MyAccount from './pages/MyAccount/Index';
+import Property from './pages/Property/Index';
 import Register from './pages/Register/Index';
 export default function Routes() {
   return (
@@ -15,6 +16,7 @@ export default function Routes() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/MyAccount' element={<MyAccount />} />
+          <Route path='/Property' element={<Property />} />
         </Rt>
       <Footer />
     </BrowserRouter>

@@ -5,7 +5,8 @@ export const HeaderContext = createContext({});
 
 interface BarModel{
     url:string,
-    title: string
+    title: string,
+    deslogar: string,
 }
 
 interface Props{
@@ -14,7 +15,8 @@ interface Props{
 export default function HeaderProvider(props: Props) {
     const [bar, setBar] = useState<BarModel>({
         url: "/Login",
-        title: "Login"
+        title: "Login",
+        deslogar: "Sair"
     })
   return (
     <HeaderContext.Provider value={{bar, setBar}}>

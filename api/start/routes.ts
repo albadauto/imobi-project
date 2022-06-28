@@ -30,5 +30,7 @@ Route.group(() => {
     Route.post("/authenticate", "AuthController.verifyLogin");
     Route.get("/findUserById/:id", "UsersController.findUserById")
   }).prefix("user")
+
+  Route.resource("/properties", "PropertiesController").apiOnly();
 }).prefix("api");
 
