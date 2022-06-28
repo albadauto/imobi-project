@@ -5,9 +5,9 @@ import { LabelLink, Logo } from './style';
 export default function Header() {
   const { bar, setBar }: any = useHeader();
     if (sessionStorage.getItem("token")){
-      setBar({...bar, title: "Minha conta"})
+      setBar({...bar, title: "Minha conta", url: "/MyAccount"})
     }else{
-      setBar({...bar, title: "Login"})
+      setBar({...bar, title: "Login", url: "/Login"})
     }
   return (
     <Navbar bg="light" expand="lg">
@@ -28,7 +28,7 @@ export default function Header() {
             <LabelLink>Sobre</LabelLink>
 
             </Nav.Link>
-            <Nav.Link href="/Login" >
+            <Nav.Link href={bar.url} >
             <LabelLink>{bar.title}</LabelLink>
 
 

@@ -19,16 +19,22 @@ export default function Register() {
     );
     const [checkBox, setCheckBox] = useState<boolean>(false);
 
-    async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>){
+    async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        try{
-            if(userData.password === passForCheck && checkBox){
-                const response = await api.post("/registerUser", userData);
-                toast.success(response.data.message);
-            }else{
+        try {
+            if (userData.password === passForCheck && checkBox) {
+                const result = api.post("/user/registerUser", userData)
+                await toast.promise(result, 
+                        {
+                            error: "Deu erro!",
+                            success: "Usuário criado!",
+                            pending: "Criando usuário..."
+                        }
+                    )
+            } else {
                 toast.error("Error: Verifique as informações inseridas e tente novamente")
             }
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
@@ -109,7 +115,7 @@ export default function Register() {
                 <Row>
 
                     <Col xs={1} style={{ marginRight: -70 }}>
-                        <Form.Check aria-label="option 1" onChange={() => setCheckBox(!checkBox)}/>
+                        <Form.Check aria-label="option 1" onChange={() => setCheckBox(!checkBox)} />
                     </Col>
                     Eu aceito todos os termos de uso da Imobi Project
                 </Row>

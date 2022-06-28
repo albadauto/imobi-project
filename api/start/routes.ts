@@ -28,7 +28,7 @@ Route.group(() => {
   Route.group(() => {
     Route.post("/registerUser", "UsersController.createNewUser");
     Route.post("/authenticate", "AuthController.verifyLogin");
-
-  })
+    Route.get("/findUserById/:id", "UsersController.findUserById")
+  }).prefix("user")
 }).prefix("api");
 
