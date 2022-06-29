@@ -5,7 +5,7 @@ export default function Property() {
     <Container>
       <Row>
         <Col className="text-center mt-5">
-          <Button variant="secondary" className="button-geral">Anúnciar Imóvel</Button>
+          <Button variant="secondary" className="button-geral" href="/Announce">Anúnciar Imóvel</Button>
 
         </Col>
       </Row>
