@@ -14,7 +14,7 @@ export default class extends BaseSchema {
       table.string("title").notNullable();
       table.string("location").notNullable();
       table.float("price").notNullable();
-      table.string("image");
+      table.string("property_image");
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

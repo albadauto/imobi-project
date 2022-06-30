@@ -12,7 +12,7 @@ export default class Property extends BaseModel {
   public price: number
 
   @column()
-  public image: string
+  public property_image: string
 
   @column()
   public user_id:number
