@@ -19,7 +19,7 @@ const databaseConfig: DatabaseConfig = {
   | file.
   |
   */
-  connection: Env.get('DB_CONNECTION'),
+  connection: Env.get('DB_CONNECTION', 'pg'),
 
   connections: {
     /*
@@ -41,13 +41,21 @@ const databaseConfig: DatabaseConfig = {
         user: Env.get('PG_USER'),
         password: Env.get('PG_PASSWORD', ''),
         database: Env.get('PG_DB_NAME'),
+        ssl: {
+          rejectUnauthorized: false
+        }
       },
+      
+  
       migrations: {
         naturalSort: true,
       },
       healthCheck: false,
       debug: false,
     },
+    
+
+  
 
   }
 }
