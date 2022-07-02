@@ -8,6 +8,7 @@ import Home from './pages/Home/Index';
 import Login from './pages/Login/Index';
 import MyAccount from './pages/MyAccount/Index';
 import Property from './pages/Property/Index';
+import RecoverPassword from './pages/RecoverPassword/Index';
 import Register from './pages/Register/Index';
 import SingleAnnounce from './pages/SingleAnnounce/Index';
 export default function Routes() {
@@ -21,6 +22,7 @@ export default function Routes() {
           <Route path='/MyAccount' element={<MyAccount />} />
           <Route path='/Property' element={<Property />} />
           <Route path='/Announce' element={<Announce />} />
+          <Route path='/RecoverPassword' element={<RecoverPassword />} />
           <Route path='/SingleAnnounce/:id' element={<SingleAnnounce />} />
           <Route path="*" element={<Error />} />
         </Rt>

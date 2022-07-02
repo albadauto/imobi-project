@@ -66,7 +66,7 @@ export default function Login() {
           <br />
           <Row>
             <Col className="text-center m">
-              <Link to="/">Esqueci a senha</Link>
+              <Link to="/RecoverPassword">Esqueci a senha</Link>
             </Col>
           </Row>
 
