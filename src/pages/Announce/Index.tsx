@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Form, FloatingLabel, Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { api } from '../../api';
 import "./style.css";
@@ -10,7 +11,14 @@ interface IProperty {
 }
 export default function Announce() {
   const [files, setFiles] = useState<any>(null);
-  const [propertyData, setPropertyData] = useState<IProperty>({ title: "", price: 0, location: "" });
+  const [propertyData, setPropertyData] = useState<IProperty>({ title: "", price: 0, location: ""});
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(!sessionStorage.getItem("token")){
+      navigate("/Login");
+    }
+  }, [])
+  
   async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
@@ -19,6 +27,7 @@ export default function Announce() {
       form.append("title", propertyData.title);
       form.append("price", propertyData.price.toString());
       form.append("location", propertyData.location);
+      form.append("user_id", sessionStorage.getItem("id") as string | Blob)
       await toast.promise(api.post("/properties", form), {
         error: "Deu erro!",
         success: "Anúncio criado!",
@@ -34,6 +43,7 @@ export default function Announce() {
     }
     setFiles(e.target.files[0]);
   }
+  
 
   return (
     <Container className="border border-dark announce-container">

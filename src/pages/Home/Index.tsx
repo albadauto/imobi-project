@@ -13,7 +13,7 @@ export default function Home() {
               <h2>Aqui fazemos seu lar, sua propriedade!</h2>
 
               <h2>Confira os melhores preços na Imobi Project!</h2>
-              <Button variant="secondary" className='button-start'>Começar</Button>
+              <Button variant="secondary" className='button-start' href="/Login">Começar</Button>
             </Col>
           </Row>
         </Container>

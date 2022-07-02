@@ -2,19 +2,22 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react'
 import { Button, Col, Container, Row, Card } from "react-bootstrap";
 import { api } from '../../api';
+import "./style.css";
 interface IProperty {
   title: string,
   location: string,
-  prince: number,
-  property_image: string
+  price: number,
+  property_image: string,
+  name: string,
+  id: number
 }
 export default function Property() {
   const [properties, setProperties] = useState<IProperty[]>([])
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     setLoading(true);
-    api.get("/properties").then((response: AxiosResponse) => {
-      setProperties(response.data.result)
+    api.get("/findAllPropertiesWithUser").then((response: AxiosResponse) => {
+      setProperties(response.data.propertySearch)
       setLoading(false);
     })
       .catch((err: AxiosError) => console.log(err));
@@ -43,11 +46,14 @@ export default function Property() {
             <Card style={{ width: '18rem', marginBottom: "200px", marginTop: "100px" }}>
               <Card.Img variant="top" src={api.defaults.baseURL ? api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `uploads/${val.property_image}` : ""} />
               <Card.Body>
-                <Card.Title>{val.title}</Card.Title>
+              <Card.Title><b>R$ {val.price}</b></Card.Title>
+                <Card.Title>{val.title} - {val.location}</Card.Title>
                 <Card.Text>
-                  {val.location}
+                  {val.name}
                 </Card.Text>
-                <Button variant="primary">Conferir</Button>
+                <div className="text-center">
+                <Button variant="outline-dark" href={`/SingleAnnounce/${val.id}`}>Conferir</Button>
+                </div>
               </Card.Body>
             </Card>
           )

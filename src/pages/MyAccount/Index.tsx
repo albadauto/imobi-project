@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Col, Row, Form, FloatingLabel } from 'react-bootstrap'
+import { Container, Col, Row, Form, FloatingLabel, Button, Table } from 'react-bootstrap'
 import { api } from '../../api';
 import "./style.css";
 interface IUser {
@@ -10,8 +10,15 @@ interface IUser {
     district: string,
     number: number,
 }
+interface IProperty {
+    title: string,
+    location: string,
+    price: number,
+    id: number
+}
 export default function MyAccount() {
     const [userData, setUserData] = useState<IUser>();
+    const [property, setProperty] = useState<IProperty[]>([]);
     useEffect(() => {
         async function findUserById() {
             try {
@@ -22,7 +29,25 @@ export default function MyAccount() {
             }
         }
         findUserById();
+
+        async function getAllProperties() {
+            try {
+                const response = await api.get(`/findAllPropertiesIdUser/${sessionStorage.getItem("id")}`)
+                setProperty(response.data.propertySearch);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        getAllProperties();
     }, [])
+    async function handleDeleteProperty(id: number){
+        try{
+            await api.delete(`/deleteProperty/${id}`)
+            window.location.href = "/MyAccount";
+        }catch(err){
+            console.log(err);
+        }
+    }
     return (
         <Container className="myaccount-container border border-dark">
             <Row>
@@ -43,7 +68,7 @@ export default function MyAccount() {
                 </Col>
                 <Col>
                     <FloatingLabel label="Telefone">
-                        <Form.Control type="text" disabled placeholder="Telefone" value={userData?.phone}/>
+                        <Form.Control type="text" disabled placeholder="Telefone" value={userData?.phone} />
                     </FloatingLabel>
                 </Col>
             </Row>
@@ -56,7 +81,7 @@ export default function MyAccount() {
                 </Col>
                 <Col>
                     <FloatingLabel label="Bairro">
-                        <Form.Control type="text" disabled placeholder="Bairro" value={userData?.district}/>
+                        <Form.Control type="text" disabled placeholder="Bairro" value={userData?.district} />
                     </FloatingLabel>
                 </Col>
                 <Col>
@@ -65,6 +90,38 @@ export default function MyAccount() {
                     </FloatingLabel>
                 </Col>
             </Row>
+            <br />
+            <Row>
+                <Col className="text-center">
+                    <h1>Meus anúncios</h1>
+                </Col>
+            </Row>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Preço</th>
+                        <th>Localização</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {property.map((val) => {
+                        return (
+                            <tr>
+                                <td>{val.title}</td>
+                                <td>{val.price}</td>
+                                <td>{val.location}</td>
+                                <td className="text-center">
+                                    <Button variant="danger" onClick={() => handleDeleteProperty(val.id)}>Deletar</Button>
+                                </td>
+                            </tr>
+                        )
+                    })}
+
+
+                </tbody>
+            </Table>
         </Container>
     )
 }
