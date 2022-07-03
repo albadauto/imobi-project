@@ -36,6 +36,11 @@ Route.group(() => {
   Route.get("/findAllPropertiesIdUser/:id", "PropertiesController.findAllPropertiesIdUser");
   Route.delete("/deleteProperty/:id", "PropertiesController.deleteProperty");
 
+  Route.group(() => {
+    Route.post("/recoverPass", "RecoversController.recoverPass")
+    Route.post("/verifyCode", "RecoversController.verifyCode")
+
+  }).prefix("Recover")
 
   
 }).prefix("api");

@@ -41,7 +41,8 @@ export default function Property() {
       }
       <Row>
 
-        {properties.map((val) => {
+        {properties.length > 0 ? properties.map((val) => {
+          
           return (
             <Card style={{ width: '18rem', marginBottom: "200px", marginTop: "100px" }}>
               <Card.Img variant="top" src={api.defaults.baseURL ? api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `uploads/${val.property_image}` : ""} />
@@ -57,7 +58,7 @@ export default function Property() {
               </Card.Body>
             </Card>
           )
-        })}
+        }) : <Row><Col className="text-center no-announces"><h1>Não há anúncios no momento :(</h1></Col></Row>}
       </Row>
 
     </Container>

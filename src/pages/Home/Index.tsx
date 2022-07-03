@@ -62,7 +62,7 @@ export default function Home() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <br /><br /><br />
+      <br /><br /><br /><br /><br />
       <Container>
         <Row>
           <Col className="text-center">
@@ -74,7 +74,7 @@ export default function Home() {
           </Col>
 
         </Row>
-        <br /><br />
+        <br /><br /><br /><br />
         <Row>
 
           <Col className="border border-dark">
