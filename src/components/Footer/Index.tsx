@@ -11,7 +11,7 @@ export default function Footer() {
                 </NameOfSite>
                 <Row>
                     <Col>
-                        Copyright {new Date().getFullYear()} Todos os Direitos Reservados - Johh
+                        Copyright {new Date().getFullYear()} Todos os Direitos Reservados - José Adauto (https://github.com/albadauto)
                     </Col>
                 </Row>
             </Container>

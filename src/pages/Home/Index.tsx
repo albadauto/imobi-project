@@ -1,15 +1,32 @@
-import React from 'react'
-import { Container, Row, Col, Button, Carousel } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col, Button, Card } from 'react-bootstrap'
+import { api } from '../../api';
 import "./style.css";
+interface IProperty {
+  title: string,
+  location: string,
+  price: number,
+  property_image: string,
+  name: string,
+  id: number
+}
 export default function Home() {
+  const [propertyData, setPropertyData] = useState<IProperty[]>([]);
+
+  useEffect(() => {
+    api.get("/findAllPropertiesWithUser").then((response) => {
+      setPropertyData(response.data.propertySearch.slice(0, 8));
+    })
+  }, [])
+
   return (
     <>
       <div className="container-main">
         <Container>
-          
+
           <Row>
             <Col className="text-center welcome">
-              <h1>Bem vindo(a) à sua nova Casa!</h1>
+              <h1>Bem vindo(a) a sua nova Casa!</h1>
               <h2>Aqui fazemos seu lar, sua propriedade!</h2>
 
               <h2>Confira os melhores preços na Imobi Project!</h2>
@@ -27,41 +44,36 @@ export default function Home() {
           </Col>
         </Row>
       </Container>
-      <Carousel>
-        <Carousel.Item interval={1000}>
-          <img
-            className="d-block w-100"
-            src="https://fotos.vivadecora.com.br/decoracao-casas-modernas-escada-de-alvenaria-com-iluminacao-e-canteiros-revistavd-201900-proportional-height_cover_medium.jpg"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={500}>
-          <img
-            className="d-block w-100"
-            src="https://vejasp.abril.com.br/wp-content/uploads/2021/06/roberto-migotto-casa-de-praia-1.jpg?quality=70&strip=info"
-            alt="Second slide"
-          />
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://www.meujardins.com.br/img/casa_jardins_fachada_modelo_2.jpg"
-            alt="Third slide"
-          />
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+      <Container>
+        <Row>
+          {propertyData.length > 0 ? propertyData.map((val) => {
+            return (
+              <Col>
+                <Card border="dark" style={{ width: '18rem', marginBottom: 20 }}>
+                  <Card.Img variant="top" src={api.defaults.baseURL ? api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `uploads/${val.property_image}` : ""} />
+                  <Card.Body>
+                    <Card.Title>R$ {val.price}</Card.Title>
+                    <Card.Text>
+                      <h5>{val.title}</h5>
+                      <h5>{val.location}</h5>
+
+                    </Card.Text>
+                    <div className='text-center'>
+                      <Button variant="outline-dark" href={`/SingleAnnounce/${val.id}`}>Conferir</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            )
+
+          }) : <Row><Col className="text-center no-announces"><h1>Não há anúncios no momento :(</h1></Col></Row>}
+
+
+        </Row>
+
+
+      </Container>
+
       <br /><br /><br /><br /><br />
       <Container>
         <Row>
@@ -70,7 +82,7 @@ export default function Home() {
           </Col>
 
           <Col className="border border-dark">
-            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h4>
+            <h4>A Imobi Project é um projeto de site de imobiliarias criado e projetado por José Adauto Albarraz. O intuito do site é simples, simular de forma prática um site de compra e venda de imovéis, apenas auxiliando na comunicação entre comprador/vendedor. Além disso, o projeto é feito para complemento de portfólio, treino e composição de conhecimento</h4>
           </Col>
 
         </Row>
@@ -78,7 +90,7 @@ export default function Home() {
         <Row>
 
           <Col className="border border-dark">
-            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nibh sit amet porttitor vestibulum. Vestibulum placerat malesuada massa at mollis. Proin imperdiet mauris sit amet maximus facilisis. In hac habitasse platea dictumst. Pellentesque sit amet erat id orci tincidunt lobortis. Etiam pulvinar tortor elit, ac placerat mi imperdiet hendrerit. </h4>
+            <h4>O Objetivo principal do site é demonstrar de forma prática o desenvolvimento de um sistema pequeno mas completo, de uma plataforma de ecommerce de vendas. Além disso, é importante dizer que o site não está no ar para fins comerciais, apenas para estudo. </h4>
           </Col>
 
           <Col className="text-center">

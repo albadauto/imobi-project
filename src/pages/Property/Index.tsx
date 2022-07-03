@@ -42,21 +42,23 @@ export default function Property() {
       <Row>
 
         {properties.length > 0 ? properties.map((val) => {
-          
+
           return (
-            <Card style={{ width: '18rem', marginBottom: "200px", marginTop: "100px" }}>
-              <Card.Img variant="top" src={api.defaults.baseURL ? api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `uploads/${val.property_image}` : ""} />
-              <Card.Body>
-              <Card.Title><b>R$ {val.price}</b></Card.Title>
-                <Card.Title>{val.title} - {val.location}</Card.Title>
-                <Card.Text>
-                  {val.name}
-                </Card.Text>
-                <div className="text-center">
-                <Button variant="outline-dark" href={`/SingleAnnounce/${val.id}`}>Conferir</Button>
-                </div>
-              </Card.Body>
-            </Card>
+            <Col>
+              <Card style={{ width: '18rem', marginBottom: "200px", marginTop: "100px", marginLeft: 10 }}>
+                <Card.Img variant="top" src={api.defaults.baseURL ? api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `uploads/${val.property_image}` : ""} />
+                <Card.Body>
+                  <Card.Title><b>R$ {val.price}</b></Card.Title>
+                  <Card.Title>{val.title} - {val.location}</Card.Title>
+                  <Card.Text>
+                    {val.name}
+                  </Card.Text>
+                  <div className="text-center">
+                    <Button variant="outline-dark" href={`/SingleAnnounce/${val.id}`}>Conferir</Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
           )
         }) : <Row><Col className="text-center no-announces"><h1>Não há anúncios no momento :(</h1></Col></Row>}
       </Row>

@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes as Rt, Route } from "react-router-dom";
 import Footer from './components/Footer/Index';
 import Header from './components/Header/Index';
+import About from './pages/About/Index';
 import Announce from './pages/Announce/Index';
 import Error from './pages/Error/Index';
 import Home from './pages/Home/Index';
@@ -24,6 +25,8 @@ export default function Routes() {
           <Route path='/Announce' element={<Announce />} />
           <Route path='/RecoverPassword' element={<RecoverPassword />} />
           <Route path='/SingleAnnounce/:id' element={<SingleAnnounce />} />
+          <Route path='/about' element={<About />} />
+
           <Route path="*" element={<Error />} />
         </Rt>
       <Footer />

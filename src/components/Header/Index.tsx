@@ -30,7 +30,7 @@ export default function Header() {
           >
             <Nav.Link href="/"><LabelLink>Home</LabelLink></Nav.Link>
             <Nav.Link href="/Property"><LabelLink>Imóveis</LabelLink></Nav.Link>
-            <Nav.Link  >
+            <Nav.Link  href="/about" >
               <LabelLink >Sobre</LabelLink>
 
             </Nav.Link>
